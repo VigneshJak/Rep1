@@ -1,0 +1,1 @@
+There are two microservices Customeraddress and customerdeatils. Here customerdetails will fetch the address from Customeraddress for a specific customer
