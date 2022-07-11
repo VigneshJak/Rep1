@@ -1,4 +1,4 @@
-package com.example.demo.customerdetails.Controller;
+package com.cmr.customershipping.customerdetails.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.example.demo.customerdetails.Model.Customer;
-import com.example.demo.customerdetails.Service.CustomerService;
+import com.cmr.customershipping.customerdetails.model.Customer;
+import com.cmr.customershipping.customerdetails.service.CustomerService;
 
 @RestController
 public class CustomerController {
@@ -20,15 +20,9 @@ public class CustomerController {
 
 	@GetMapping("/customer/{id}")
 	public Customer getCustomerById(@PathVariable Long id) {
-		HashMap<String, Long> uriVariables = new HashMap<String, Long>();
-		uriVariables.put("id", id);
-		ResponseEntity<Customer> responseEntity = new RestTemplate().getForEntity("http://localhost:8089//customer/{id}",
-				Customer.class, uriVariables);
-		Customer customer = responseEntity.getBody();
-		return new Customer(id, customerService.getById(id).getName(), customer.getStreet(), customer.getZip(),
-				customer.getCity(), customer.getState());
-
-		// return customerService.getById(id);
+		
+		
+		return customerService.getById(id);
 
 	}
 
